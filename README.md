@@ -33,14 +33,18 @@ module.exports = {
 
 ## Run
 
-Start the server
+1. Start the server
 
 ```
 node ./server/app.js
 ```
 
-Open xCode and hit the run button to build.
-This app is currently optimized for iPhone 6
+2. Open xCode and hit the run button to build.
+3. In the simulator, go to Debug > Location > Custom Location 
+4. Add a Latitude and Longitute value and hit OK
+  - This is to set a current location so when you open the app, it will go there and set the initial Latitute and Longitute state
+  
+*This app is currently optimized for iPhone 6*
 
 ## TODO's
 
