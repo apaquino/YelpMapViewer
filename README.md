@@ -7,6 +7,7 @@ This react native app is to use the yelp API search method to locate points of i
 * node v4.2.1 to run as a local server running on port 3000
 * API keys from yelp
 * xCode 7.1
+
 *This is version of the software I used and may work with different versions*
 
 The yelp API call requires that you are authenticated and sets it in the request headers so you cannot just make a call from your client. I had to make node/express server to use it with the app.
