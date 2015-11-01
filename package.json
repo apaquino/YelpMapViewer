@@ -1,0 +1,13 @@
+{
+  "name": "YelpMapViewer",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node_modules/react-native/packager/packager.sh"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "react-native": "^0.13.2",
+    "yelp": "^0.2.0"
+  }
+}
