@@ -6,7 +6,6 @@ var {
   StyleSheet,
   Text,
   View,
-  TextInput,
   Image
 } = React;
 
