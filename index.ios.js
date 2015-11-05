@@ -11,6 +11,7 @@ var {
 
 var YelpMapViewer = React.createClass({
   render: function() {
+    // adding navigator to clean up index and for future features
     return (
       <NavigatorIOS
         style={styles.container}

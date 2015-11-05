@@ -53,8 +53,6 @@ var App = React.createClass({
         selectedYelpPinAddress = selectedYelpPinAddress.slice(0, -1);
         // TODO make a util function to turn an array of strings into an string with \n
 
-    // TODO break into components.
-
     return (
               <PinDetailFooter
                  selectedYelpPin={selectedYelpPin}
@@ -65,7 +63,7 @@ var App = React.createClass({
   },
 
   _getYelpData: function(e) {
-    // NOTE I make variables to hold state data as preference
+    // NOTE I make variables to hold state data as reference
     //      to not have long arguements in functions and be consistent
     var latitude = this.state.latitude,
         longitude = this.state.longitude,
@@ -137,6 +135,7 @@ var App = React.createClass({
     return pins
   },
 
+  // TODO add function to UI later to clear pins without doing a re-search
   _clearPins: function() {
     this.setState({
       searched: false,
