@@ -4,14 +4,12 @@ var React = require('react-native');
 
 var {
   StyleSheet,
-  View,
   TextInput
 } = React;
 
 var SearchInputBox = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
         <TextInput
           ref="searchTextInput"
           style={styles.textInput}
@@ -25,16 +23,11 @@ var SearchInputBox = React.createClass({
           clearButtonMode='always'
           clearTextOnFocus={true}
         />
-      </View>
     );
   }
 });
 
 var styles = StyleSheet.create({
-  container: {
-    alignItems: 'stretch',
-    backgroundColor: '#4682b4'
-  },
   textInput: {
     height: 40,
     borderWidth: 1,
