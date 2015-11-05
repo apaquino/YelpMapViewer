@@ -2,6 +2,7 @@
 
 var React = require('react-native'),
     SearchInputBox = require('./SearchInputBox'),
+    PinDetailFooter = require('./PinDetailFooter'),
     YelpApi = require('../utils/yelpApi');
 
 var {
@@ -59,31 +60,12 @@ var App = React.createClass({
     // TODO break into components.
 
     return (
-      <View style={styles.footer}>
-        <Image
-          source={{uri: selectedYelpPin.imageUrl}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>
-          {selectedYelpPin.name}
-          </Text>
-          <Text style={styles.baseText}>
-          {selectedYelpPinAddress}
-          </Text>
-          <Text style={styles.baseText}>
-          {selectedYelpPin.phone}
-          </Text>
-        </View>
-        <View style={styles.leftContainer}>
-          <Text
-            style={styles.closeFooterButton}
-            onPress={this._handleCloseFooterButton}>
-          X
-          </Text>
-        </View>
-      </View>
-    )
+              <PinDetailFooter
+                 selectedYelpPin={selectedYelpPin}
+                 address={selectedYelpPinAddress}
+                 handleClose={this._handleCloseFooterButton}
+              />
+           )
   },
 
   _getYelpData: function(e) {
@@ -201,34 +183,9 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#4682b4',
-
   },
   baseText: {
     fontFamily: 'Cochin',
-  },
-  title: {
-    fontFamily: 'Cochin',
-    fontSize: 20
-  },
-  thumbnail: {
-    width: 88,
-    height: 88,
-    marginLeft: 10,
-    marginRight:10
-  },
-  rightContainer: {
-    flex: 9,
-  },
-  leftContainer: {
-    flex: 1,
-    alignSelf: "flex-start",
-    alignItems: "flex-end",
-    marginTop: 10,
-    marginRight: 10
-  },
-  closeFooterButton:{
-    fontWeight: "bold",
-    color: "white"
   },
   map: {
     flex: 1
