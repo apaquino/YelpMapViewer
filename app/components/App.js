@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native'),
+    SearchInputBox = require('./SearchInputBox'),
     YelpApi = require('../utils/yelpApi');
 
 var {
@@ -22,7 +23,8 @@ var App = React.createClass({
       yelpResults: [],
       latitude: "unknown",
       longitude:"unknown",
-      searched: false
+      searched: false,
+      searchValue: null
     };
   },
 
@@ -111,8 +113,6 @@ var App = React.createClass({
           yelpResults: tempYelpResults
         })
       });
-    // clear input text field after search is done
-    this.refs.searchTextInput.setNativeProps({text: ''})
   },
 
   _handleOnRegionChangeComplete: function(region) {
@@ -170,17 +170,7 @@ var App = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-        <TextInput
-          ref="searchTextInput"
-          style={styles.textInput}
-          placeholder="  Search for something"
-          autoFocus={true}
-          autoCorrect={false}
-          returnKeyType="search"
-          enablesReturnKeyAutomatically={true}
-          autoCapitalize="none"
-          onSubmitEditing={this._getYelpData}
-        />
+        <SearchInputBox handleOnSubmitEditing={this._getYelpData.bind(this)} />
         <View style={styles.body}>
           <MapView
             style={styles.map}
@@ -201,16 +191,6 @@ var styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch',
     backgroundColor: '#4682b4'
-  },
-  textInput: {
-    height: 40,
-    borderWidth: 1,
-    marginTop: 20,
-    marginBottom: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    backgroundColor: "white",
-    borderRadius: 10
   },
   body: {
     flex: 4,

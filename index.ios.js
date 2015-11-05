@@ -21,7 +21,7 @@ var YelpMapViewer = React.createClass({
         }}
       />
     );
-}
+  }
 });
 
 var styles = StyleSheet.create({
