@@ -21,8 +21,7 @@ var App = React.createClass({
       yelpResults: [],
       latitude: "unknown",
       longitude:"unknown",
-      searched: false,
-      searchValue: null
+      searched: false
     };
   },
 
