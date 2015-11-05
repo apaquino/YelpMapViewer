@@ -40,16 +40,17 @@ node ./server/app.js
 ```
 
 2. Open xCode and hit the run button to build.
-3. In the simulator, go to Debug > Location > Custom Location 
+3. In the simulator, go to Debug > Location > Custom Location
 4. Add a Latitude and Longitute value and hit OK
-  - This is to set a current location so when you open the app, it will go there and set the initial Latitute and Longitute state
-  
+  - This is to set a current location so when you open the app, it will go there and set the initial latitude and longitude state
+  - You might have to select none, then repeat and set to a custom latitude and longitude
+
 *This app is currently optimized for iPhone 6*
 
 ## TODO's
 
 1. Make new branches
   - Initial single file working version - DONE
-  - Break up into different components and use ES2015 syntax
+  - Break up into different components(DONE) and use ES2015 syntax
   - Use a flux like pattern like Redux
 2. tests :)
