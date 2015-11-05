@@ -7,12 +7,9 @@ var React = require('react-native'),
 
 var {
   StyleSheet,
-  Text,
   View,
-  TextInput,
   MapView,
   StatusBarIOS,
-  Image
 } = React;
 
 var App = React.createClass({
