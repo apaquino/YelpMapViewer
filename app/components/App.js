@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   _showFooter() {
-    var yelpPinSelected = this.state.yelpPinSelected;
+    let yelpPinSelected = this.state.yelpPinSelected;
     // Do not show footer if a pin is not selected.
     // This function is called in the component render function
     // Logic is done here to keep render as clean as possible
@@ -44,7 +44,7 @@ class App extends Component {
       return;
     }
 
-    var selectedYelpPin = this.state.selectedYelpPin,
+    let selectedYelpPin = this.state.selectedYelpPin,
         selectedYelpPinAddress = "";
         selectedYelpPin.addressArr.forEach((element) => {
           selectedYelpPinAddress += element + "\n";
@@ -65,7 +65,7 @@ class App extends Component {
   _getYelpData(e) {
     // NOTE I make variables to hold state data as reference
     //      to not have long arguements in functions and be consistent
-    var latitude = this.state.latitude,
+    let latitude = this.state.latitude,
         longitude = this.state.longitude,
         term = e.nativeEvent.text,
         tempYelpResults;
@@ -117,14 +117,18 @@ class App extends Component {
   }
 
   _createPins(){
-    var pins = [],
+    let pins = [],
         searchLatitude = this.state.latitude,
         searchLongitude = this.state.longitude,
         searched = this.state.searched,
         searchPinTitle = searched ? "Searched from here" : "Search from here",
         yelpResults = this.state.yelpResults;
     // first pin is where you did you search from
-    pins.push({latitude: searchLatitude, longitude: searchLongitude , title: searchPinTitle});
+    pins.push({
+      latitude: searchLatitude,
+      longitude: searchLongitude ,
+      title: searchPinTitle
+    });
     // add pins from search results
     yelpResults.forEach((result) => {
       pins.push({
@@ -163,7 +167,7 @@ class App extends Component {
   }
 };
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
