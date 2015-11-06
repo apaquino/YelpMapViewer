@@ -15,7 +15,7 @@ let {
   Image
 } = React;
 
-class PinDetailFooter extends Component{
+class PinDetailFooter extends Component {
 
   render() {
     let selectedYelpPin = this.props.selectedYelpPin;

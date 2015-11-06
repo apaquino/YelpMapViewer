@@ -1,16 +1,20 @@
 'use strict';
 
-const React = require('react-native'),
-      App = require('./app/components/App');
+import React, { Component, PropTypes } from 'react-native';
+import App from './app/components/App';
 
-var {
+const propTypes = {
+  initialRoute: PropTypes.object.isRequired
+};
+
+let {
   AppRegistry,
   NavigatorIOS,
   StyleSheet
 } = React;
 
-var YelpMapViewer = React.createClass({
-  render: function() {
+class YelpMapViewer extends Component {
+  render() {
     // adding navigator to clean up index and for future features
     return (
       <NavigatorIOS
@@ -23,12 +27,14 @@ var YelpMapViewer = React.createClass({
       />
     );
   }
-});
+};
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1
   }
 });
+
+App.propTypes = propTypes;
 
 AppRegistry.registerComponent('YelpMapViewer', () => YelpMapViewer);
