@@ -1,18 +1,24 @@
 'use strict';
 
-const React = require('react-native');
+import React, { Component, PropTypes } from 'react-native';
 
-var {
+const propTypes = {
+  selectedYelpPin: PropTypes.object.isRequired,
+  address: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired
+};
+
+let {
   StyleSheet,
   Text,
   View,
   Image
 } = React;
 
-var PinDetailFooter = React.createClass({
+class PinDetailFooter extends Component{
 
-  render: function() {
-    var selectedYelpPin = this.props.selectedYelpPin;
+  render() {
+    let selectedYelpPin = this.props.selectedYelpPin;
 
     return (
       <View style={styles.footer}>
@@ -41,9 +47,9 @@ var PinDetailFooter = React.createClass({
       </View>
     )
   }
-});
+};
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   footer: {
     flex: 1,
     flexDirection: 'row',
@@ -81,4 +87,6 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = PinDetailFooter;
+PinDetailFooter.propTypes = propTypes;
+
+export default PinDetailFooter;
