@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react-native'),
-    SearchInputBox = require('./SearchInputBox'),
-    PinDetailFooter = require('./PinDetailFooter'),
-    YelpApi = require('../utils/yelpApi');
+const React = require('react-native'),
+      SearchInputBox = require('./SearchInputBox'),
+      PinDetailFooter = require('./PinDetailFooter'),
+      YelpApi = require('../utils/yelpApi');
 
 var {
   StyleSheet,

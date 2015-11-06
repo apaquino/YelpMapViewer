@@ -1,4 +1,4 @@
-var rootUrl = 'http://localhost:3000/search?';
+const rootUrl = 'http://localhost:3000/search?';
 // specific end point url required for this fetch
 module.exports = function(latitute, longitude, term) {
   var termEncoded = encodeURI(term);
