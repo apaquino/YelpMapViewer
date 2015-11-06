@@ -51,6 +51,6 @@ node ./server/app.js
 
 1. Make new branches
   - Initial single file working version - DONE
-  - Break up into different components(DONE) and use ES2015 syntax
+  - Break up into different components(DONE) and use ES2015 syntax (DONE)
   - Use a flux like pattern like Redux
 2. tests :)
