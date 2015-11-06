@@ -1,21 +1,21 @@
 'use strict';
 
-const React = require('react-native'),
-      SearchInputBox = require('./SearchInputBox'),
-      PinDetailFooter = require('./PinDetailFooter'),
-      YelpApi = require('../utils/yelpApi');
+import React, { Component } from 'react-native';
+import SearchInputBox from './SearchInputBox';
+import PinDetailFooter from './PinDetailFooter';
+import YelpApi from '../utils/yelpApi';
 
-var {
+let {
   StyleSheet,
   View,
   MapView,
   StatusBarIOS,
 } = React;
 
-var App = React.createClass({
-
-  getInitialState: function() {
-    return {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       yelpPinSelected: false,
       selectedYelpPin: {},
       yelpResults: [],
@@ -23,19 +23,19 @@ var App = React.createClass({
       longitude:"unknown",
       searched: false
     };
-  },
+  }
 
-  componentWillMount: function() {
+  componentWillMount() {
     StatusBarIOS.setStyle(1);
-  },
+  }
 
-  _handleCloseFooterButton: function(){
+  _handleCloseFooterButton(){
     this.setState({
       yelpPinSelected: !this.state.yelpPinSelected
     });
-  },
+  }
 
-  _showFooter: function() {
+  _showFooter() {
     var yelpPinSelected = this.state.yelpPinSelected;
     // Do not show footer if a pin is not selected.
     // This function is called in the component render function
@@ -57,12 +57,12 @@ var App = React.createClass({
               <PinDetailFooter
                  selectedYelpPin={selectedYelpPin}
                  address={selectedYelpPinAddress}
-                 handleClose={this._handleCloseFooterButton}
+                 handleClose={this._handleCloseFooterButton.bind(this)}
               />
            )
-  },
+  }
 
-  _getYelpData: function(e) {
+  _getYelpData(e) {
     // NOTE I make variables to hold state data as reference
     //      to not have long arguements in functions and be consistent
     var latitude = this.state.latitude,
@@ -89,10 +89,10 @@ var App = React.createClass({
           yelpResults: tempYelpResults
         })
       });
-  },
+  }
 
-  _handleOnRegionChangeComplete: function(region) {
-    var searched = this.state.searched;
+  _handleOnRegionChangeComplete(region) {
+    let searched = this.state.searched;
 
     if (!searched) {
       this.setState({
@@ -100,9 +100,9 @@ var App = React.createClass({
         longitude: region.longitude
       });
     }
-  },
+  }
 
-  _handleOnAnnotationPress: function(pin) {
+  _handleOnAnnotationPress(pin) {
     // Do not show footer if you press the pin from where you did your search from
     if (pin.title === "Searched from here" || pin.title === "Search from here" ) {
       return
@@ -114,9 +114,9 @@ var App = React.createClass({
       yelpPinSelected: true,
       selectedYelpPin: yelpResults.find((result) => { return result.name === pin.title})
     });
-  },
+  }
 
-  _createPins: function(){
+  _createPins(){
     var pins = [],
         searchLatitude = this.state.latitude,
         searchLongitude = this.state.longitude,
@@ -133,18 +133,18 @@ var App = React.createClass({
         title: result.name});
     });
     return pins
-  },
+  }
 
   // TODO add function to UI later to clear pins without doing a re-search
-  _clearPins: function() {
+  _clearPins() {
     this.setState({
       searched: false,
       yelpPinSelected: false,
       yelpResults: []
     });
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <View style={styles.container}>
         <SearchInputBox handleOnSubmitEditing={this._getYelpData.bind(this)} />
@@ -152,16 +152,16 @@ var App = React.createClass({
           <MapView
             style={styles.map}
             showsUserLocation={true}
-            onRegionChangeComplete={this._handleOnRegionChangeComplete}
+            onRegionChangeComplete={this._handleOnRegionChangeComplete.bind(this)}
             annotations={this._createPins()}
-            onAnnotationPress={this._handleOnAnnotationPress}
+            onAnnotationPress={this._handleOnAnnotationPress.bind(this)}
           />
         </View>
       { this._showFooter() }
       </View>
     );
   }
-});
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -187,4 +187,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = App;
+export default App;
