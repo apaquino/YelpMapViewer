@@ -1,14 +1,18 @@
 'use strict';
 
-const React = require('react-native');
+import React, { Component, PropTypes } from 'react-native';
 
-var {
+const propTypes = {
+  handleOnSubmitEditing: PropTypes.func.isRequired
+};
+
+let {
   StyleSheet,
   TextInput
 } = React;
 
-var SearchInputBox = React.createClass({
-  render: function() {
+class SearchInputBox extends Component {
+  render() {
     return (
         <TextInput
           ref="searchTextInput"
@@ -25,9 +29,9 @@ var SearchInputBox = React.createClass({
         />
     );
   }
-});
+};
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   textInput: {
     height: 40,
     borderWidth: 1,
@@ -40,4 +44,6 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = SearchInputBox;
+SearchInputBox.propTypes = propTypes;
+
+export default SearchInputBox;
