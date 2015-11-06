@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react-native';
 import App from './app/components/App';
 
 const propTypes = {
-  initialRoute: PropTypes.object.isRequired
+  initialRoute: PropTypes.object
 };
 
 let {
