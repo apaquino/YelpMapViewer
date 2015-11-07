@@ -54,12 +54,12 @@ class App extends Component {
         // TODO make a util function to turn an array of strings into an string with \n
 
     return (
-              <PinDetailFooter
-                 selectedYelpPin={selectedYelpPin}
-                 address={selectedYelpPinAddress}
-                 handleClose={this._handleCloseFooterButton.bind(this)}
-              />
-           )
+      <PinDetailFooter
+         selectedYelpPin={selectedYelpPin}
+         address={selectedYelpPinAddress}
+         handleClose={this._handleCloseFooterButton.bind(this)}
+      />
+   )
   }
 
   _getYelpData(e) {
@@ -108,7 +108,7 @@ class App extends Component {
       return
     }
 
-    var yelpResults = this.state.yelpResults;
+    let yelpResults = this.state.yelpResults;
 
     this.setState({
       yelpPinSelected: true,
