@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "express": "^4.13.3",
-    "react-native": "^0.13.2",
+    "react-native": "^0.14.0",
     "yelp": "^0.2.0"
   }
 }

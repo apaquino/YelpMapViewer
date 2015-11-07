@@ -161,7 +161,7 @@ class App extends Component {
             onAnnotationPress={this._handleOnAnnotationPress.bind(this)}
           />
         </View>
-      { this._showFooter() }
+      {this._showFooter()}
       </View>
     );
   }
