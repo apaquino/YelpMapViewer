@@ -39,7 +39,7 @@ module.exports = {
 node ./server/app.js
 ```
 
-2. Open xCode and hit the run button to build.
+2. Open Xcode and hit the run button to build.
 3. In the simulator, go to Debug > Location > Custom Location
 4. Add a Latitude and Longitute value and hit OK
   - This is to set a current location so when you open the app, it will go there and set the initial latitude and longitude state
